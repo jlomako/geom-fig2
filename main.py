@@ -62,7 +62,7 @@ with col1:
     # set seed to create different figures
     # seed needs to be random and can not be counter!
     # counter would create the same figures all over again
-    random_button = st.button("New", use_container_width=True)
+    random_button = st.button("New", use_container_width=True, type="primary")
     if random_button:
         st.session_state.count = np.random.random()
         spiro = random_figure(st.session_state.count)
@@ -89,7 +89,7 @@ with col2:
     plt.savefig(img, format='png')
 
     st.download_button(
-        label="Download image",
+        label="Download Image",
         data=img,
         file_name='image.png',
         mime="image/png",
@@ -97,3 +97,4 @@ with col2:
     )
 
 
+st.caption("© Copyright 2023, <a href='https://github.com/jlomako'>jlomako</a>", unsafe_allow_html=True)
