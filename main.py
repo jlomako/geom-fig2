@@ -67,15 +67,20 @@ with col1:
         st.session_state.count = np.random.random()
         spiro = random_figure(st.session_state.count)
 
+    if st.checkbox('Expand Menu'):
+        slider_label = "visible"
+    else:
+        slider_label = "collapsed"
 
-    R = st.slider('R: ', 0, 200, value=spiro[0], label_visibility="collapsed")
-    r = st.slider('r: ', 1, 200, value=spiro[1], label_visibility="collapsed")
-    d = st.slider('d: ', 0, 200, value=spiro[2], label_visibility="collapsed")
-    freq1 = st.slider('freq1: ', 0, 10, value=spiro[3], label_visibility="collapsed")
-    freq2 = st.slider('freq2: ', 0, 10, value=spiro[4], label_visibility="collapsed")
-    amp1 = st.slider('amp1: ', 0, 500, value=spiro[5], label_visibility="collapsed")
-    amp2 = st.slider('amp2: ', 0, 500, value=spiro[6], label_visibility="collapsed")
-    k = st.slider('k: ', 1, 25, value=spiro[7], label_visibility="collapsed")
+
+    R = st.slider('Radius (big): ', 0, 200, value=spiro[0], label_visibility=slider_label)
+    r = st.slider('Radius (small): ', 1, 200, value=spiro[1], label_visibility=slider_label)
+    d = st.slider('Distance: ', 0, 200, value=spiro[2], label_visibility=slider_label)
+    freq1 = st.slider('Frequency 1st wave: ', 0, 10, value=spiro[3], label_visibility=slider_label)
+    freq2 = st.slider('Frequency 2nd wave: ', 0, 10, value=spiro[4], label_visibility=slider_label)
+    amp1 = st.slider('Amplitude 1st wave: ', 0, 500, value=spiro[5], label_visibility=slider_label)
+    amp2 = st.slider('Amplitude 2nd wave: ', 0, 500, value=spiro[6], label_visibility=slider_label)
+    k = st.slider('Coefficient: ', 1, 25, value=spiro[7], label_visibility=slider_label)
 
 with col2:
     st.pyplot(create_figure(R, r, d, freq1, freq2, amp1, amp2, k, np.random.random()))
