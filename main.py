@@ -35,7 +35,7 @@ def create_figure(R, r, d, freq1, freq2, amp1, amp2, k, seed):
 
 @st.cache_data(ttl=3600)
 def random_figure(seed):
-    return [np.random.randint(1, 200),  # R
+    return [np.random.randint(1, 200), # R
             np.random.randint(1, 200), # r
             np.random.randint(1, 200), # d
             np.random.randint(1, 10),  # freq1
@@ -45,7 +45,7 @@ def random_figure(seed):
             np.random.randint(1, 20)]  # k
 
 
-st.subheader("Spirograph: Generate geometric figures")
+st.subheader("Spirograph: Create geometric figures")
 
 col1, col2 = st.columns([2, 6])
 with col1:
@@ -62,19 +62,19 @@ with col1:
     # set seed to create different figures
     # seed needs to be random and can not be counter!
     # counter would create the same figures all over again
-    random_button = st.button("Create", use_container_width=True)
+    random_button = st.button("New", use_container_width=True)
     if random_button:
         st.session_state.count = np.random.random()
         spiro = random_figure(st.session_state.count)
 
+    # SLIDER MENU
     if st.checkbox('Expand Menu'):
         slider_label = "visible"
     else:
         slider_label = "collapsed"
 
-
-    R = st.slider('Radius (big): ', 0, 200, value=spiro[0], label_visibility=slider_label)
-    r = st.slider('Radius (small): ', 1, 200, value=spiro[1], label_visibility=slider_label)
+    R = st.slider('Big circle radius: ', 0, 200, value=spiro[0], label_visibility=slider_label)
+    r = st.slider('Small circle radius: ', 1, 200, value=spiro[1], label_visibility=slider_label)
     d = st.slider('Distance: ', 0, 200, value=spiro[2], label_visibility=slider_label)
     freq1 = st.slider('Frequency 1st wave: ', 0, 10, value=spiro[3], label_visibility=slider_label)
     freq2 = st.slider('Frequency 2nd wave: ', 0, 10, value=spiro[4], label_visibility=slider_label)
