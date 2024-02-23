@@ -68,7 +68,7 @@ with col1:
         spiro = random_figure(st.session_state.count)
 
     # SLIDER MENU
-    if st.checkbox('Expand Menu'):
+    if st.checkbox('Show labels'):
         slider_label = "visible"
     else:
         slider_label = "collapsed"
